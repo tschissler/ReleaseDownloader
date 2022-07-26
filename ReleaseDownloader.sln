@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32708.82
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReleaseDownloader", "ReleaseDownloader\ReleaseDownloader.csproj", "{803BC899-4A32-43A0-AAA3-227F96B1EDE7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReleaseDownloaderTests", "ReleaseDownloaderTests\ReleaseDownloaderTests.csproj", "{D2DB27CE-0B2F-4C3C-913E-093508378B02}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{803BC899-4A32-43A0-AAA3-227F96B1EDE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{803BC899-4A32-43A0-AAA3-227F96B1EDE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{803BC899-4A32-43A0-AAA3-227F96B1EDE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{803BC899-4A32-43A0-AAA3-227F96B1EDE7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2DB27CE-0B2F-4C3C-913E-093508378B02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2DB27CE-0B2F-4C3C-913E-093508378B02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2DB27CE-0B2F-4C3C-913E-093508378B02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2DB27CE-0B2F-4C3C-913E-093508378B02}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E0342FA2-360F-486A-9508-C731EE81386D}
+	EndGlobalSection
+EndGlobal
