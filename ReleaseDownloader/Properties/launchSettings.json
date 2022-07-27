@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "ReleaseDownloader": {
+      "commandName": "Project",
+      "commandLineArgs": "scrumorg/PSM -d d:\\temp\\_ReleaseDownloader\\ -f"
+    }
+  }
+}

@@ -5,11 +5,16 @@
     <TargetFramework>net6.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyVersion></AssemblyVersion>
+    <FileVersion></FileVersion>
+	<Copyright>(c) Thomas Schissler 2022 distributed under MIT license</Copyright>
+	<Company>agileMax</Company>
+	<Version>1.0.2</Version>
+	<AssemblyTitle>Release Downloader</AssemblyTitle>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="octokit" Version="0.51.0" />
+    <PackageReference Include="octokit" Version="1.0.0" />
   </ItemGroup>
-
 </Project>

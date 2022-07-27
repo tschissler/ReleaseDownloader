@@ -54,9 +54,15 @@ namespace ReleaseDownloader
                 Assets = new List<ReleaseAssetsData>(latestRelease.Assets.Select(a => new ReleaseAssetsData
                 {
                     Name = a.Name,
-                    BrowserDownloadUrl = a.BrowserDownloadUrl
+                    BrowserDownloadUrl = a.Url
                 }).ToList())
             };
+        }
+
+        public static void DownloadAssetFromRepo(string downloadUrl, string targetPath)
+        {
+            var responseRaw = client.Connection.Get<Byte[]>(new Uri(downloadUrl), new Dictionary<string, string>(), "application/octet-stream").Result;
+            File.WriteAllBytes(targetPath, responseRaw.Body);
         }
     }
 }

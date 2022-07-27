@@ -2,7 +2,7 @@ namespace ReleaseDownloader
 {
     public class ReleaseDownloader
     {
-        public static void DownloadReleases(IEnumerable<string> repositories, string targetDirectory)
+        public static void DownloadReleases(IEnumerable<string> repositories, string targetDirectory, bool force)
         {
             foreach (var repository in repositories)
             {
@@ -17,27 +17,49 @@ namespace ReleaseDownloader
 
                 Console.WriteLine($"Latest Releases is: {latestRelease.TagName}");
 
-                var latestReleaseDirectory = Path.Combine(targetDirectory, latestRelease.TagName);
+                var latestReleaseDirectory = Path.Combine(targetDirectory, repositoryParts[1], latestRelease.TagName);
                 if (!Directory.Exists(latestReleaseDirectory))
                 {
                     Console.WriteLine($"Release does not exist locally, creating directory: {latestReleaseDirectory}");
-
-                    Directory.CreateDirectory(latestReleaseDirectory);
-
-                    foreach (var asset in latestRelease.Assets)
-                    {
-                        var downloadUrl = asset.BrowserDownloadUrl;
-                        var targetFile = Path.Join(latestReleaseDirectory, asset.Name);
-                        Console.Write($"    Downloading: {asset.Name} ... ");
-                        DownloadManager.DownloadFileFromUrl(downloadUrl, targetFile);
-                        Console.WriteLine("Done");
-                    }
+                    DownloadAssets(latestRelease, latestReleaseDirectory);
                 }
                 else
                 {
-                    Console.WriteLine($"Release exists locally, skipping download: {latestReleaseDirectory}");
+                    if (force)
+                    {
+                        Console.WriteLine($"Release exists but force parameter is set, local folder: {latestReleaseDirectory} will be deleted and recreated.");
+                        Console.WriteLine($"Do you really want to continue? [Y]es [N]o");
+                        var input = Console.ReadLine().ToLower();
+                        if (input == "y" || input == "yes")
+                        {                            
+                            Directory.Delete(latestReleaseDirectory, true);
+                            DownloadAssets(latestRelease, latestReleaseDirectory);                            
+                        }
+                        else
+                        {
+                            Console.WriteLine($"Aborted downloading release for {repository}");
+                        }
+                    }
+                    else
+                    {
+                        Console.WriteLine($"Release exists locally, skipping download: {latestReleaseDirectory}");
+                    }
                 }
 
+            }
+        }
+
+        private static void DownloadAssets(ReleaseData latestRelease, string latestReleaseDirectory)
+        {
+            Directory.CreateDirectory(latestReleaseDirectory);
+
+            foreach (var asset in latestRelease.Assets)
+            {
+                var downloadUrl = asset.BrowserDownloadUrl;
+                var targetFile = Path.Join(latestReleaseDirectory, asset.Name);
+                Console.Write($"    Downloading: {asset.Name} ... ");
+                RepositoryManager.DownloadAssetFromRepo(downloadUrl, targetFile);
+                Console.WriteLine("Done");
             }
         }
     }    

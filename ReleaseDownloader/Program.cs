@@ -14,7 +14,7 @@ internal class Program
 
         var targetDirectory = result.Value.DownloadDirectory ?? (string?)Path.Combine(Path.GetTempPath(), "_ReleaseDownloader");
 
-        ReleaseDownloader.ReleaseDownloader.DownloadReleases(result.Value.Repositories, targetDirectory);
+        ReleaseDownloader.ReleaseDownloader.DownloadReleases(result.Value.Repositories, targetDirectory, result.Value.Force);
 
         return 0;
     }
