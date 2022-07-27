@@ -14,7 +14,7 @@ A prerequisit to install the tool is to have a .Net SDK installed.
 Go to [https://dotnet.microsoft.com/en-us/download](https://dotnet.microsoft.com/en-us/download) to download the latest .Net version.
 It is available for Windows, Linux, macOS and Docker.
 
-Once ypu have .Net SDK installed, you can install ReleaseDownloader by running this command.
+Once you have .Net SDK installed, you can install ReleaseDownloader by running this command.
 
 ```bash
 dotnet tool install --global ReleaseDownloader
