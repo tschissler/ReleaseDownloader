@@ -26,4 +26,4 @@ jobs:
     - name: Pack
       run: dotnet pack 
     - name: Publish
-      run: dotnet nuget push ./ReleaseDownloader/nupkg -k ${{secrets.Nuget_API_Key}} -s nuget.org
+      run: dotnet nuget push ./ReleaseDownloader/nupkg/ReleaseDownloader.*.nupkg -k ${{secrets.Nuget_API_Key}} -s nuget.org
