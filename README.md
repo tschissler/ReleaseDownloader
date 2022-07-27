@@ -36,7 +36,7 @@ releasedownloader.exe --help
 Imagine, you have a repositories where you want to download the latest release. 
 Let's assume one is the ReleaseDownloader repositor which has an example release.
 
-![Example Repository](Images/ExampleRepsoitory.png)
+![Example Repository](/Images/ExampleRepository.png)
 
 For ReleaseDownloader you need the owner of the repository (1) and the repository name (2).
 It will then download the assets from the latest release in a local folder that you provide.
