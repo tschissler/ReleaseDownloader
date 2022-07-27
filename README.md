@@ -1,4 +1,7 @@
-﻿# ReleaseDownloader
+﻿![example workflow](https://github.com/tschissler/releasedownloader/actions/workflows/dotnet.yml/badge.svg)
+[![NuGet](https://img.shields.io/nuget/v/releasedownloader)](https://www.nuget.org/packages/ReleaseDownloader)
+
+# ReleaseDownloader
 
 This tool allows to download assets from the latest release in one or multiple GitHub repositories. 
 The assets are put into a folder with the same name as the tag of a realease, downloads are only executed if the latest version is not already stored locally. 
@@ -23,7 +26,7 @@ This will install the latest version.
 You can now execute the tool.
 To see the various command line options just run 
 ```bash
-ReleaseDownloader --help
+releasedownloader.exe --help
 ```
 
 ## Updating the tool
