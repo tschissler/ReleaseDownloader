@@ -15,6 +15,7 @@
 	  <ToolCommandName>releasedownloader</ToolCommandName>
 	  <PackageOutputPath>./nupkg</PackageOutputPath>
 	  <PackageReadmeFile>README.md</PackageReadmeFile>
+	  <PackageProjectUrl>https://github.com/tschissler/ReleaseDownloader</PackageProjectUrl>
   </PropertyGroup>
 
   <ItemGroup>
