@@ -24,6 +24,6 @@ jobs:
 #    - name: Test
 #      run: dotnet test --no-build --verbosity normal
     - name: Pack
-      run: dotnet pack 
+      run: dotnet pack -p:PackageVersion=0.9.${{github.run_number}}
     - name: Publish
       run: dotnet nuget push ./ReleaseDownloader/nupkg/ReleaseDownloader.*.nupkg -k ${{secrets.Nuget_API_Key}} -s nuget.org
