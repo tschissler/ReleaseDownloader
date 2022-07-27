@@ -13,6 +13,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		ReleaseDownloader.png = ReleaseDownloader.png
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Images", "Images", "{7826B86C-0947-49F2-B437-5C92A5E3FD52}"
+	ProjectSection(SolutionItems) = preProject
+		Images\ExampleRepository.png = Images\ExampleRepository.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,6 +35,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7826B86C-0947-49F2-B437-5C92A5E3FD52} = {25C39BA5-31DA-46C2-B936-1688CC405E99}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E0342FA2-360F-486A-9508-C731EE81386D}
