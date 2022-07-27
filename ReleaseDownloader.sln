@@ -5,7 +5,12 @@ VisualStudioVersion = 17.3.32708.82
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReleaseDownloader", "ReleaseDownloader\ReleaseDownloader.csproj", "{803BC899-4A32-43A0-AAA3-227F96B1EDE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReleaseDownloaderTests", "ReleaseDownloaderTests\ReleaseDownloaderTests.csproj", "{D2DB27CE-0B2F-4C3C-913E-093508378B02}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ReleaseDownloaderTests", "ReleaseDownloaderTests\ReleaseDownloaderTests.csproj", "{D2DB27CE-0B2F-4C3C-913E-093508378B02}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{25C39BA5-31DA-46C2-B936-1688CC405E99}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
