@@ -15,6 +15,7 @@ namespace ReleaseDownloader
                 var repositoryParts = repository.Split('/');
                 var latestRelease = RepositoryManager.GetLatestRelease(repositoryParts[0], repositoryParts[1]);
 
+                Console.WriteLine(string.Concat(Enumerable.Repeat("-", 80)));
                 Console.WriteLine($"Latest Releases is: {latestRelease.TagName}");
 
                 var latestReleaseDirectory = Path.Combine(targetDirectory, repositoryParts[1], latestRelease.TagName);
@@ -27,7 +28,8 @@ namespace ReleaseDownloader
                 {
                     if (force)
                     {
-                        Console.WriteLine($"Release exists but force parameter is set, local folder: {latestReleaseDirectory} will be deleted and recreated.");
+                        Console.WriteLine($"Release exists but force parameter is set.{Environment.NewLine}");
+                        Console.WriteLine($"Local folder {latestReleaseDirectory} will be deleted and recreated.");
                         Console.WriteLine($"Do you really want to continue? [Y]es [N]o");
                         var input = Console.ReadLine().ToLower();
                         if (input == "y" || input == "yes")
@@ -45,8 +47,8 @@ namespace ReleaseDownloader
                         Console.WriteLine($"Release exists locally, skipping download: {latestReleaseDirectory}");
                     }
                 }
-
             }
+            Console.WriteLine(string.Concat(Enumerable.Repeat("-", 80)));
         }
 
         private static void DownloadAssets(ReleaseData latestRelease, string latestReleaseDirectory)
