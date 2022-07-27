@@ -6,14 +6,22 @@ namespace ReleaseDownloader
         {
             foreach (var repository in repositories)
             {
+                ReleaseData latestRelease;
+
                 if (repository.Count(c => c == '/') != 1)
                 {
-                    System.Console.WriteLine($"Invalid repository format {repository}. Expected: owner/repository");
-                    break;
+                    throw new ArgumentException($"Invalid repository format {repository}. Expected: owner/repository");
                 }
 
                 var repositoryParts = repository.Split('/');
-                var latestRelease = RepositoryManager.GetLatestRelease(repositoryParts[0], repositoryParts[1]);
+                try
+                {
+                    latestRelease = RepositoryManager.GetLatestRelease(repositoryParts[0], repositoryParts[1]);
+                }
+                catch (Exception ex)
+                {
+                    throw new AccessViolationException("Cannot access the GitHub repository or asset. For private repositories make sure you have provided an valid access token and the URL is correct.", ex);
+                }
 
                 Console.WriteLine(string.Concat(Enumerable.Repeat("-", 80)));
                 Console.WriteLine($"Latest Releases is: {latestRelease.TagName}");
@@ -55,13 +63,20 @@ namespace ReleaseDownloader
         {
             Directory.CreateDirectory(latestReleaseDirectory);
 
-            foreach (var asset in latestRelease.Assets)
+            try
             {
-                var downloadUrl = asset.BrowserDownloadUrl;
-                var targetFile = Path.Join(latestReleaseDirectory, asset.Name);
-                Console.Write($"    Downloading: {asset.Name} ... ");
-                RepositoryManager.DownloadAssetFromRepo(downloadUrl, targetFile);
-                Console.WriteLine("Done");
+                foreach (var asset in latestRelease.Assets)
+                {
+                    var downloadUrl = asset.BrowserDownloadUrl;
+                    var targetFile = Path.Join(latestReleaseDirectory, asset.Name);
+                    Console.Write($"    Downloading: {asset.Name} ... ");
+                    RepositoryManager.DownloadAssetFromRepo(downloadUrl, targetFile);
+                    Console.WriteLine("Done");
+                }
+            }
+            catch(Exception ex)
+            {
+                throw new HttpRequestException($"Error downloading asset from GitHub. Errormessage: {ex.Message}", ex);
             }
         }
     }    
