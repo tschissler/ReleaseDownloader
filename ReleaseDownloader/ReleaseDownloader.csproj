@@ -9,11 +9,12 @@
     <FileVersion></FileVersion>
 	<Copyright>(c) Thomas Schissler 2022 distributed under MIT license</Copyright>
 	<Company>agileMax</Company>
-	<Version>0.9.0</Version>
+	<Version>0.9.1</Version>
 	<AssemblyTitle>Release Downloader</AssemblyTitle>
 	  <PackAsTool>true</PackAsTool>
-	  <ToolCommandName>admincli</ToolCommandName>
+	  <ToolCommandName>releasedownloader</ToolCommandName>
 	  <PackageOutputPath>./nupkg</PackageOutputPath>
+	  <PackageReadmeFile>README.md</PackageReadmeFile>
   </PropertyGroup>
 
   <ItemGroup>
