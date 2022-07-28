@@ -1,30 +1,31 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <OutputType>Exe</OutputType>
-    <TargetFramework>net6.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-    <AssemblyVersion></AssemblyVersion>
-    <FileVersion></FileVersion>
-	<Copyright>(c) Thomas Schissler 2022 distributed under MIT license</Copyright>
-	<Company>agileMax</Company>
-	<Version>0.9.1</Version>
-	<AssemblyTitle>Release Downloader</AssemblyTitle>
-	  <PackAsTool>true</PackAsTool>
-	  <ToolCommandName>releasedownloader</ToolCommandName>
-	  <PackageOutputPath>./nupkg</PackageOutputPath>
-	  <PackageReadmeFile>README.md</PackageReadmeFile>
-	  <PackageProjectUrl>https://github.com/tschissler/ReleaseDownloader</PackageProjectUrl>
-	  <RepositoryUrl>https://github.com/tschissler/ReleaseDownloader</RepositoryUrl>
-	  <Description>A tool to download assets from GitHub releases</Description>
-	  <PackageIcon>ReleaseDownloader.png</PackageIcon>
-  </PropertyGroup>
+	<PropertyGroup>
+		<OutputType>Exe</OutputType>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+		<AssemblyVersion></AssemblyVersion>
+		<FileVersion></FileVersion>
+		<Copyright>(c) Thomas Schissler 2022 distributed under MIT license</Copyright>
+		<Company>agileMax</Company>
+		<Version>0.9.1</Version>
+		<AssemblyTitle>Release Downloader</AssemblyTitle>
+		<PackAsTool>true</PackAsTool>
+		<ToolCommandName>releasedownloader</ToolCommandName>
+		<PackageOutputPath>./nupkg</PackageOutputPath>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageProjectUrl>https://github.com/tschissler/ReleaseDownloader</PackageProjectUrl>
+		<RepositoryUrl>https://github.com/tschissler/ReleaseDownloader</RepositoryUrl>
+		<Description>A tool to download assets from GitHub releases</Description>
+		<PackageIcon>ReleaseDownloader.png</PackageIcon>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="CommandLineParser" Version="2.9.1" />
-    <PackageReference Include="octokit" Version="1.0.0" />
-	<None Include="../README.md" Pack="true" PackagePath="/"/>
-	<None Include="../Images/ReleaseDownloader.png" Pack="true" PackagePath="/"/>
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="CommandLineParser" Version="2.9.1" />
+		<PackageReference Include="octokit" Version="1.0.0" />
+		<None Include="../README.md" Pack="true" PackagePath="/"/>
+		<None Include="../ReleaseDownloader.png" Pack="true" PackagePath="/"/>
+		<None Include="../Images/ExampleRepository.png" Pack="true" PackagePath="/"/>
+	</ItemGroup>
 </Project>
