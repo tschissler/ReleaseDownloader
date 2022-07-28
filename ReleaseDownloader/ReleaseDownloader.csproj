@@ -25,6 +25,6 @@
     <PackageReference Include="CommandLineParser" Version="2.9.1" />
     <PackageReference Include="octokit" Version="1.0.0" />
 	<None Include="../README.md" Pack="true" PackagePath="/"/>
-	<None Include="../ReleaseDownloader.png" Pack="true" PackagePath="/"/>
+	<None Include="../Images/ReleaseDownloader.png" Pack="true" PackagePath="/"/>
   </ItemGroup>
 </Project>
