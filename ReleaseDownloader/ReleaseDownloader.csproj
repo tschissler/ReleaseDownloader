@@ -26,6 +26,5 @@
 		<PackageReference Include="octokit" Version="1.0.0" />
 		<None Include="../README.md" Pack="true" PackagePath="/"/>
 		<None Include="../ReleaseDownloader.png" Pack="true" PackagePath="/"/>
-		<None Include="../Images/ExampleRepository.png" Pack="true" PackagePath="/"/>
 	</ItemGroup>
 </Project>
