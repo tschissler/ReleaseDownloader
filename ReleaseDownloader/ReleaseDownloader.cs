@@ -67,11 +67,14 @@ namespace ReleaseDownloader
             {
                 foreach (var asset in latestRelease.Assets)
                 {
-                    var downloadUrl = asset.BrowserDownloadUrl;
-                    var targetFile = Path.Join(latestReleaseDirectory, asset.Name);
-                    Console.Write($"    Downloading: {asset.Name} ... ");
-                    RepositoryManager.DownloadAssetFromRepo(downloadUrl, targetFile, token);
-                    Console.WriteLine("Done");
+                    if (!asset.Name.Contains("All.material.zip"))
+                    {
+                        var downloadUrl = asset.BrowserDownloadUrl;
+                        var targetFile = Path.Join(latestReleaseDirectory, asset.Name);
+                        Console.Write($"    Downloading: {asset.Name} ... ");
+                        RepositoryManager.DownloadAssetFromRepo(downloadUrl, targetFile, token);
+                        Console.WriteLine("Done");
+                    }
                 }
             }
             catch(Exception ex)
