@@ -67,7 +67,7 @@ namespace ReleaseDownloader
             {
                 foreach (var asset in latestRelease.Assets)
                 {
-                    if (!asset.Name.Contains("All.material.zip"))
+                    if (!asset.Name.ToLower().Contains("all.material.zip"))
                     {
                         var downloadUrl = asset.BrowserDownloadUrl;
                         var targetFile = Path.Join(latestReleaseDirectory, asset.Name);
