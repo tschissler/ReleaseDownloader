@@ -2,7 +2,7 @@ namespace ReleaseDownloader
 {
     public class ReleaseDownloader
     {
-        public static void DownloadReleases(IEnumerable<string> repositories, string targetDirectory, bool force)
+        public static void DownloadReleases(IEnumerable<string> repositories, string targetDirectory, bool force, string? token = null)
         {
             foreach (var repository in repositories)
             {
@@ -16,7 +16,7 @@ namespace ReleaseDownloader
                 var repositoryParts = repository.Split('/');
                 try
                 {
-                    latestRelease = RepositoryManager.GetLatestRelease(repositoryParts[0], repositoryParts[1]);
+                    latestRelease = RepositoryManager.GetLatestRelease(repositoryParts[0], repositoryParts[1], token);
                 }
                 catch (Exception ex)
                 {
@@ -30,7 +30,7 @@ namespace ReleaseDownloader
                 if (!Directory.Exists(latestReleaseDirectory))
                 {
                     Console.WriteLine($"Release does not exist locally, creating directory: {latestReleaseDirectory}");
-                    DownloadAssets(latestRelease, latestReleaseDirectory);
+                    DownloadAssets(latestRelease, latestReleaseDirectory, token);
                 }
                 else
                 {
@@ -43,7 +43,7 @@ namespace ReleaseDownloader
                         if (input == "y" || input == "yes")
                         {                            
                             Directory.Delete(latestReleaseDirectory, true);
-                            DownloadAssets(latestRelease, latestReleaseDirectory);                            
+                            DownloadAssets(latestRelease, latestReleaseDirectory, token);                            
                         }
                         else
                         {
@@ -59,7 +59,7 @@ namespace ReleaseDownloader
             Console.WriteLine(string.Concat(Enumerable.Repeat("-", 80)));
         }
 
-        private static void DownloadAssets(ReleaseData latestRelease, string latestReleaseDirectory)
+        private static void DownloadAssets(ReleaseData latestRelease, string latestReleaseDirectory, string token)
         {
             Directory.CreateDirectory(latestReleaseDirectory);
 
@@ -70,7 +70,7 @@ namespace ReleaseDownloader
                     var downloadUrl = asset.BrowserDownloadUrl;
                     var targetFile = Path.Join(latestReleaseDirectory, asset.Name);
                     Console.Write($"    Downloading: {asset.Name} ... ");
-                    RepositoryManager.DownloadAssetFromRepo(downloadUrl, targetFile);
+                    RepositoryManager.DownloadAssetFromRepo(downloadUrl, targetFile, token);
                     Console.WriteLine("Done");
                 }
             }

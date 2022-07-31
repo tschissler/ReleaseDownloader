@@ -34,14 +34,9 @@ internal class Program
 
         var targetDirectory = result.Value.DownloadDirectory ?? (string?)Path.Combine(Path.GetTempPath(), "_ReleaseDownloader");  
         
-        if (!string.IsNullOrWhiteSpace(result.Value.GitHubToken))
-        {
-            RepositoryManager.Authenticate(result.Value.GitHubToken);
-        }
-
         try
         {            
-            ReleaseDownloader.ReleaseDownloader.DownloadReleases(result.Value.Repositories, targetDirectory, result.Value.Force);
+            ReleaseDownloader.ReleaseDownloader.DownloadReleases(result.Value.Repositories, targetDirectory, result.Value.Force, result.Value.GitHubToken);
         }
         catch (Exception ex)
         {
